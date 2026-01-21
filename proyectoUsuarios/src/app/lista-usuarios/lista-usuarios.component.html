@@ -1,0 +1,14 @@
+<div class="lista">
+    <table class="tabla">
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Contraseña</th>
+        </tr>
+        <tr *ngFor="let user of users">
+            <td>{{user.id}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.password}}</td>
+        </tr>
+    </table>
+</div>

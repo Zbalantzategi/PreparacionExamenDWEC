@@ -1,0 +1,12 @@
+<div class="formularios">
+
+    <h3>Formulario para crear usuario</h3>
+    <form (ngSubmit)="enviar()" >
+        <label for="username"></label>
+        <input 
+            type="text" 
+            name="username" 
+            id="username"
+            [(ngModel="nuevoUsuario.username")]>
+    </form>
+</div>
