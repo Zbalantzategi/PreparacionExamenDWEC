@@ -1,12 +1,32 @@
 <div class="formularios">
 
     <h3>Formulario para crear usuario</h3>
+    <p>Crea una nueva contraseña</p>
     <form (ngSubmit)="enviar()" >
-        <label for="username"></label>
+        <label for="username">Nombre de usuario</label>
         <input 
             type="text" 
             name="username" 
-            id="username"
-            [(ngModel="nuevoUsuario.username")]>
+            [(ngModel)]="nuevoUsuario.username">
+        <label for="password">Contraseña</label>
+        <input 
+            type="text"
+            name="password"
+            [(ngModel)]="nuevoUsuario.password">
+        <button type="submit" >Enviar Formulario</button>
+        <p *ngIf="usuarioGenerado">Se ha introducido el usuario</p>
     </form>
+
+    <h3>Formulario para actualizar un usuario</h3>
+    <form (ngSubmit)="actualizar()">
+        <label for="idActualizar">Introduce el id que quieres actualizar</label>
+        <input type="text" name="idActualizar" [(ngModel)]="idActualizar">
+        <label for="usernameActualizar">Introduce el nombre al que deseas cambiar</label>
+        <input type="text" name="usernameActualizar" [(ngModel)]="usuarioActualizar.username">
+        <label for="passwordActualizar">Introduce la contraseña que desas cambiar</label>
+        <input type="text" name="passwordActualizar" [(ngModel)]="usuarioActualizar.password">
+        <button type="submit">Enviar</button>
+    </form>
+
+    <p *ngIf="usuarioActualizado">El usuario {{usuarioActualizar.username}} ha sido actualizado</p>
 </div>

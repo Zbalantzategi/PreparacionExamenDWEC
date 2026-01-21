@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../models/usuario';
 import { ApiUsuariosService } from '../api-usuarios.service';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -16,12 +16,14 @@ export class ListaUsuariosComponent {
   constructor(private usuariosService: ApiUsuariosService) {
   }
 
+  ngOnInit():void {
+    this.mostrarLista();
+  }
+
   mostrarLista() {
     this.usuariosService.getUsuarios().subscribe({
       next: (data) => {
         this.users = data;
-        console.log(data);
-        alert('E')
       }, error: (err) => {
         console.log("Ha ocurrido un error");
       }
